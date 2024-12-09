@@ -1,0 +1,122 @@
+<mujoco>
+  <option timestep="0.005" gravity="0 0 -9.81"/>
+
+  <asset>
+    <!-- Define materials -->
+    <material name="hub_material" rgba="0.7 0.2 0.2 1"/>
+    <material name="main_body_material" rgba="0.2 0.2 0.2 1"/>
+    <material name="spoke_material" rgba="0.3 0.3 0.8 1"/>
+    <material name="joint_material" rgba="0.4 0.4 0.8 1"/>    
+    <material name="ground_material" rgba="0.6 0.6 0.6 1"/>
+  </asset>
+
+  <worldbody>
+    <!-- Ground plane for the wheel to roll on -->
+    <geom name="ground" type="plane" size="10 10 0.1" material="ground_material" condim="3"/>
+    
+    <!-- Sloped plane 
+    <geom name="slope" type="plane" pos="2 0 0" euler="0 20 0" size="3 3 0.1" material="ground_material"/>
+    -->
+
+    <!-- Light source to illuminate the model -->
+    <light pos="0 0 5" dir="0 0 -1" diffuse="1 1 1"/>
+
+    <!-- Central hub of the rimless wheel -->
+    <body name="hub" pos="0 0 1">
+    <freejoint/>
+      <!-- Hinge joint to allow the hub to rotate around the y-axis -->
+      <!-- Geometry for the central hub -->
+      <geom name="main_body" type="capsule" pos="0 0 0" fromto="0 0.2 0 0 -0.2 0" size="0.035" material="main_body_material"/>
+
+      <!-- Spokes of the rimless wheel -->
+      <!-- Each spoke is positioned and rotated around the hub to simulate a wheel without a rim -->
+      <body name="hub_left" pos="0 -0.2 0">
+        <geom name="hub_left_geom" type="sphere" pos="0 0 0" size="0.1" material="hub_material"/>
+      </body>
+      
+      <body name="spoke1_left" pos="0 -0.2 0">
+        <geom name="spoke1_left_geom" type="capsule" pos="0 0 0" fromto="0 0 0 0.4 0 0" size="0.02" material="spoke_material"/>
+      </body>
+      <body name="spoke2_left" pos="0 -0.2 0" euler="90 0 45">
+        <geom name="spoke2_left_geom" type="capsule" pos="0 0 0" fromto="0 0 0 0.4 0 0" size="0.02" material="spoke_material"/>
+      </body>
+      <body name="spoke3_left" pos="0
+       -0.2 0" euler="90 0 90">
+        <geom name="spoke3_left_geom" type="capsule" pos="0 0 0" fromto="0 0 0 0.4 0 0" size="0.02" material="spoke_material"/>
+      </body>
+      <body name="spoke4_left" pos="0
+       -0.2 0" euler="90 0 135">
+        <geom name="spoke4_left_geom" type="capsule" pos="0 0 0" fromto="0 0 0 0.4 0 0" size="0.02" material="spoke_material"/>
+      </body>
+      <body name="spoke5_left" pos="0
+       -0.2 0" euler="90 0 180">
+        <geom name="spoke5_left_geom" type="capsule" pos="0 0 0" fromto="0 0 0 0.4 0 0" size="0.02" material="spoke_material"/>
+      </body>
+      <body name="spoke6_left" pos="0
+       -0.2 0" euler="90 0 225">
+        <geom name="spoke6_left_geom" type="capsule" pos="0 0 0" fromto="0 0 0 0.4 0 0" size="0.02" material="spoke_material"/>
+      </body>
+      <body name="spoke7_left" pos="0
+       -0.2 0" euler="90 0 270">
+        <geom name="spoke7_left_geom" type="capsule" pos="0 0 0" fromto="0 0 0 0.4 0 0" size="0.02" material="spoke_material"/>
+      </body>
+      <body name="spoke8_left" pos="0
+       -0.2 0" euler="90 0 315">
+        <geom name="spoke8_left_geom" type="capsule" pos="0 0 0" fromto="0 0 0 0.4 0 0" size="0.02" material="spoke_material"/>
+      </body>
+
+
+      <body name="hub_right" pos="0 0.2 0">
+        <geom name="hub_right_geom" type="sphere" pos="0 0 0" size="0.1" material="hub_material"/>
+      </body>
+      <body name="spoke1_right" pos="0 0.2 0">
+        <geom name="spoke1_right_geom" type="capsule" pos="0 0 0" fromto="0 0 0 0.4 0 0" size="0.02" material="spoke_material"/>
+      </body>
+      <body name="spoke2_right" pos="0 0.2 0" euler="90 0 45">
+        <geom name="spoke2_right_geom" type="capsule" pos="0 0 0" fromto="0 0 0 0.4 0 0" size="0.02" material="spoke_material"/>
+      </body>
+      <body name="spoke3_right" pos="0
+       0.2 0" euler="90 0 90">
+        <geom name="spoke3_right_geom" type="capsule" pos="0 0 0" fromto="0 0 0 0.4 0 0" size="0.02" material="spoke_material"/>
+      </body>
+      <body name="spoke4_right" pos="0
+       0.2 0" euler="90 0 135">
+        <geom name="spoke4_right_geom" type="capsule" pos="0 0 0" fromto="0 0 0 0.4 0 0" size="0.02" material="spoke_material"/>
+      </body>
+      <body name="spoke5_right" pos="0
+       0.2 0" euler="90 0 180">
+        <geom name="spoke5_right_geom" type="capsule" pos="0 0 0" fromto="0 0 0 0.4 0 0" size="0.02" material="spoke_material"/>
+      </body>
+      <body name="spoke6_right" pos="0
+       0.2 0" euler="90 0 225">
+        <geom name="spoke6_right_geom" type="capsule" pos="0 0 0" fromto="0 0 0 0.4 0 0" size="0.02" material="spoke_material"/>
+      </body>
+      <body name="spoke7_right" pos="0
+       0.2 0" euler="90 0 270">
+        <geom name="spoke7_right_geom" type="capsule" pos="0 0 0" fromto="0 0 0 0.4 0 0" size="0.02" material="spoke_material"/>
+      </body>
+      <body name="spoke8_right" pos="0
+       0.2 0" euler="90 0 315">
+        <geom name="spoke8_right_geom" type="capsule" pos="0 0 0" fromto="0 0 0 0.4 0 0" size="0.02" material="spoke_material"/>
+      </body>
+      
+      <!-- Control -->
+      <body name="swing_leg" pos="0 0 0">
+        <joint name="swing_leg_joint" type="hinge" axis="0 -1 0" />
+        <geom name="swing_leg_geom" type="box" pos="0 0 0" fromto="0 0 0 0.35 0 0" size="0.025" material="joint_material" mass="10"/>
+      </body>
+   
+
+    </body>
+  </worldbody>
+  
+  <!-- Actuators for joint control -->
+  <actuator>
+    <position joint="swing_leg_joint" name="swing_leg_joint_motor"  ctrlrange="-1000 1000"/>
+
+    <!-- kp="50" kv = "0.5" -->
+
+  </actuator>
+
+</mujoco>
+
